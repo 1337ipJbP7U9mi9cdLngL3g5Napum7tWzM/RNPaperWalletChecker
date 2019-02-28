@@ -1,0 +1,34 @@
+This project was created off this tutorial https://hackernoon.com/using-core-node-js-modules-in-react-native-apps-64acd4d07140 
+
+1) expo init WAValidatorRNModule
+2) yarn add wallet-address-validator
+3) npm install -g browserify
+4) Create a file wav-in.js that imports the wallet-address-validator module and simply exports it:
+
+	var WAValidator = require('wallet-address-validator');
+	module.exports = WAValidator;
+
+5) Then in the terminal in the project
+
+	browserify cwav-in.js -o wav.js
+
+6) This will result in an error if you put in the test code below from Wallet-Address-validator in App.js
+
+var WAValidator = require('wallet-address-validator');
+
+var valid = WAValidator.validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'BTC');
+if(valid)
+        console.log('This is a valid address');
+else
+        console.log('Address INVALID');
+
+
+7) However, it is not necessary to replace “require” in wav.js as described in the article.  I also noticed this was true with the ‘crypto’ node module the article used as an example
+
+8) You will however, get an error along the lines “… is not a function”
+
+9) On line 3837 of wav.js change “var WAValidator = require('wallet-address-validator');” to “WAValidator = require('wallet-address-validator');”
+
+10) On the very last line in of wav.js add “module.exports = WAValidator;”
+
+everything should be working now
