@@ -1,0 +1,4 @@
+QRreader needs to use something other than 
+  AddressList.addAddress()
+  
+  
