@@ -1,4 +1,4 @@
-This project was created off this tutorial https://hackernoon.com/using-core-node-js-modules-in-react-native-apps-64acd4d07140 
+This project was created off this tutorial https://hackernoon.com/using-core-node-js-modules-in-react-native-apps-64acd4d07140
 
 1) expo init WAValidatorRNModule
 2) yarn add wallet-address-validator
@@ -32,3 +32,6 @@ else
 10) On the very last line in of wav.js add “module.exports = WAValidator;”
 
 everything should be working now
+
+
+https://expo.io/@1337ip/rnpaperwalletchecker
