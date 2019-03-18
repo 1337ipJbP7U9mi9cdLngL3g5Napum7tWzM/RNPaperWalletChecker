@@ -48,7 +48,6 @@ export default class QrAddressReader extends Component {
 
         {this._maybeRenderUrl()}
 
-        <StatusBar hidden />
       </View>
     );
   }
