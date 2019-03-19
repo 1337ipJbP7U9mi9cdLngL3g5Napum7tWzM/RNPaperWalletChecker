@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/app_icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/app_icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -25,7 +25,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "React Native Crypto Currency Paper Wallet balance checker and fiat exchange rate to your crypto balance.",
+    "description": "React Native Crypto Currency Paper Wallet balance checker.  Allows you to check the balance of multiple addresses at once.  It provides a simple way to take payments. ",
     "githubUrl": "https://github.com/1337ipJbP7U9mi9cdLngL3g5Napum7tWzM/RNPaperWalletChecker"
   }
 }
