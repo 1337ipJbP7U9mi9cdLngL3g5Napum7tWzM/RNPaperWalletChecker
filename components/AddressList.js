@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput,
          TouchableOpacity, View, Modal, ScrollView } from 'react-native';
-import { Button } from "native-base";
+import { Button, Content, Spinner} from "native-base";
 import WAValidator from '../WAV/wav';
 import {allApis} from '../apis/allApis';
 
 import Totals from './Totals';
+import EnterAddress from './EnterAddress';
 import Addresses from './Addresses';
 import QrAddressReader from './QrAddressReader';
 
@@ -21,17 +22,20 @@ export default class AddressList extends React.Component {
       popoverOpenInfo: false,
       modal: false,
       qrmodal: false,
+      enterAddressModal: false,
       progressBar: 0,
       inputText: ""
     };
 
     this.handleFilename = this.handleFilename.bind(this);
     this.handleCsvImport = this.handleCsvImport.bind(this);
+    this.changeInputText = this.changeInputText.bind(this);
     this.addAddress = this.addAddress.bind(this);
     this.deleteAddress = this.deleteAddress.bind(this);
     this.checkBalance = this.checkBalance.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.toggleQrModal = this.toggleQrModal.bind(this);
+    this.toggleEnterAddressModal = this.toggleEnterAddressModal.bind(this);
     this.toggleInfo = this.toggleInfo.bind(this);
     this.handleSocial = this.handleSocial.bind(this);
   }
@@ -74,6 +78,10 @@ export default class AddressList extends React.Component {
 
   toggleQrModal() {
     this.setState({qrmodal: !this.state.qrmodal});
+  }
+
+  toggleEnterAddressModal() {
+    this.setState({enterAddressModal: !this.state.enterAddressModal});
   }
 
   toggleInfo() {
@@ -158,9 +166,19 @@ export default class AddressList extends React.Component {
     });
   }
 
+
   addAddress(result) {
     const addObject = this.state.addresses;
     const address = this.state.inputText !== "" ? this.state.inputText.trim() : result;
+
+  changeInputText(inputText) {
+    this.setState({inputText: inputText});
+  }
+
+  addAddress(result) {
+    const addObject = this.state.addresses;
+    const address = this.state.inputText !== "" ? this.state.inputText.trim() :
+                    result;
     const checkDuplicateArray = (addObject.map(a => a.key));
     const duplicate = checkDuplicateArray.includes(address);
 
@@ -168,6 +186,8 @@ export default class AddressList extends React.Component {
       alert("you have entered a duplicte address");
     } else if (address !== Object
               && WAValidator.validate(address, this.props.cryptoSym))  {
+    } else if (typeof(address) !== "object"
+               && WAValidator.validate(address, this.props.cryptoSym))  {
       var newAddress = {
         key: address,
         cryptoAmount: '',
@@ -179,6 +199,9 @@ export default class AddressList extends React.Component {
           addresses: prevState.addresses.concat(newAddress)
         };
       });
+      if (this.state.enterAddressModal) {
+        this.toggleEnterAddressModal();
+      }
     } else {
       alert("Please enter a valid address");
     }
@@ -231,6 +254,7 @@ export default class AddressList extends React.Component {
               }}
         >
           {(this.state.addresses.length !== 0) &&
+
               (<Button success
                 style={{
                   marginTop: 5,
@@ -245,6 +269,35 @@ export default class AddressList extends React.Component {
             )
           }
         </View>
+            (<Button success
+              disabled={this.props.checkBalanceState === 'checking'}
+              style={{
+                marginTop: 5,
+                marginBottom: 5,
+                padding: 5,
+                borderRadius: 8
+              }}
+               onPress={this.checkBalance}
+             >
+               { (this.props.checkBalanceState !== 'checking') &&
+                 <Text style={{color: "white", fontWeight: "400", fontSize: 20}}>
+                   Check Balance
+                 </Text>
+               }
+               { (this.props.checkBalanceState === 'checking') &&
+                  <Text style={{color: "white", fontWeight: "400", fontSize: 20}}>
+                    Checking
+                  </Text>
+               }
+             </Button>
+            )
+          }
+        </View>
+        <View>
+          { (this.props.checkBalanceState === 'checking') &&
+             <Spinner />
+          }
+        </View>
         <Modal animationType = {"slide"} transparent = {false}
           visible = {this.state.qrmodal}
           style={{flex: 1.5,
@@ -252,6 +305,7 @@ export default class AddressList extends React.Component {
           }}
           onRequestClose = {() => { this.toggleQrModal() } }
         >
+
         {this.state.qrmodal && <QrAddressReader addAddress={this.addAddress} toggleQrModal={this.toggleQrModal} />}
         </Modal>
         <View
@@ -275,6 +329,28 @@ export default class AddressList extends React.Component {
               <Text style={{color: "white", fontWeight: "400"}}>QR</Text>
             </TouchableOpacity>
         </View>
+          {this.state.qrmodal &&
+            <QrAddressReader addAddress={this.addAddress}
+                             toggleQrModal={this.toggleQrModal}
+            />
+          }
+        </Modal>
+        <Modal animationType = {"slide"} transparent = {false}
+          visible = {this.state.enterAddressModal}
+          style={{flex: 1.5,
+            alignItems: "center"
+          }}
+          onRequestClose = {() => { this.toggleEnterAddressModal() } }
+        >
+          {this.state.enterAddressModal &&
+            <EnterAddress addAddress={this.addAddress}
+                          toggleEnterAddressModal={this.toggleEnterAddressModal}
+                          inputText={this.state.inputText}
+                          changeInputText={this.changeInputText}
+                          toggleQrModal={this.toggleQrModal}
+            />
+          }
+        </Modal>
 
         <View
           style={{ marginTop: 5}}
@@ -282,6 +358,8 @@ export default class AddressList extends React.Component {
           <Button
             style={{  borderRadius: 8}}
             onPress={this.addAddress}
+            // onPress={this.addAddress}
+            onPress={this.toggleEnterAddressModal}
             >
             <Text style={{
                     color: "white",
@@ -293,6 +371,9 @@ export default class AddressList extends React.Component {
                   </Text>
             </Button>
           </View>
+            </Text>
+          </Button>
+        </View>
 
         {(this.state.addresses.length !== 0) && (
           <Totals
@@ -312,6 +393,7 @@ export default class AddressList extends React.Component {
     );
   }
 }
+
 
 
 

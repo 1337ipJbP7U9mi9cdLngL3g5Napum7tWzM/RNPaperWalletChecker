@@ -73,6 +73,10 @@ export default class App extends React.Component {
                     barStyle={'light-content'}
                     networkActivityIndicatorVisible={true}
                 />
+            marginTop: 24.5
+            // flexDirection: "row",
+          }}
+        >
           <HeaderView
             fiatPrice={this.state.fiatPrice}
             handlefiatPrice={this.state.handleFiatPrice}
