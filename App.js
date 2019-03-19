@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
 import { Root } from "native-base";
 
 import HeaderView from './components/HeaderView';
@@ -63,10 +63,8 @@ export default class App extends React.Component {
   render() {
     return (
         <View style={{
-            // height: 'auto',
             flex: 1,
-            marginTop: 24.5
-            // flexDirection: "row",
+            paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
           }}
         >
           <HeaderView
