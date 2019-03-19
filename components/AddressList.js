@@ -348,6 +348,7 @@ export default class AddressList extends React.Component {
                           inputText={this.state.inputText}
                           changeInputText={this.changeInputText}
                           toggleQrModal={this.toggleQrModal}
+                          qrmodal={this.state.qrmodal}
             />
           }
         </Modal>

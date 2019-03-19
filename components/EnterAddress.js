@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 import { Body, Button, Text, View, Input,
-         Header, Icon, Left, Title } from "native-base";
+         Header, Icon, Left, Title, Spinner } from "native-base";
 
 const EnterAddress = (props) => {
   return (
@@ -60,12 +60,18 @@ const EnterAddress = (props) => {
             borderRadius: 8
           }}
           onPress={props.toggleQrModal}
+          disabled={props.qrmodal}
         >
           <Icon name="qrcode-scan" type="MaterialCommunityIcons" style={{margin: 0}} />
           <Text style={{color: "white", fontSize: 20}}>
             QRcode
           </Text>
         </Button>
+      </View>
+      <View>
+      { (props.qrmodal) &&
+        <Spinner />
+      }
       </View>
     </View>
   );
