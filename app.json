@@ -1,4 +1,21 @@
 {
+   "expo": {
+    "name": "Paper Wallets Checker",
+    "icon": "./assets/app_icon.png",
+    "version": "1.0.0",
+    "slug": "your-app-slug",
+    "sdkVersion": "32.0.0",
+    "ios": {
+      "bundleIdentifier": "com.yourcompany.yourappname"
+    },
+    "android": {
+      "package": "com.yourcompany.yourappname"
+    }
+   }
+ }
+
+
+{
   "expo": {
     "name": "RNPaperWalletChecker",
     "slug": "rnpaperwalletchecker",
