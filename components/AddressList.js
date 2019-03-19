@@ -166,11 +166,6 @@ export default class AddressList extends React.Component {
     });
   }
 
-
-  addAddress(result) {
-    const addObject = this.state.addresses;
-    const address = this.state.inputText !== "" ? this.state.inputText.trim() : result;
-
   changeInputText(inputText) {
     this.setState({inputText: inputText});
   }
@@ -184,8 +179,6 @@ export default class AddressList extends React.Component {
 
     if (duplicate) {
       alert("you have entered a duplicte address");
-    } else if (address !== Object
-              && WAValidator.validate(address, this.props.cryptoSym))  {
     } else if (typeof(address) !== "object"
                && WAValidator.validate(address, this.props.cryptoSym))  {
       var newAddress = {
@@ -199,9 +192,11 @@ export default class AddressList extends React.Component {
           addresses: prevState.addresses.concat(newAddress)
         };
       });
+
       if (this.state.enterAddressModal) {
         this.toggleEnterAddressModal();
       }
+
     } else {
       alert("Please enter a valid address");
     }
@@ -254,21 +249,6 @@ export default class AddressList extends React.Component {
               }}
         >
           {(this.state.addresses.length !== 0) &&
-
-              (<Button success
-                style={{
-                  marginTop: 5,
-                  marginBottom: 5,
-                  padding: 5,
-                  borderRadius: 8
-                }}
-                 onPress={this.checkBalance}
-               >
-                <Text style={{color: "white", fontWeight: "400", fontSize: 20}}>Check Balance</Text>
-              </Button>
-            )
-          }
-        </View>
             (<Button success
               disabled={this.props.checkBalanceState === 'checking'}
               style={{
@@ -305,30 +285,6 @@ export default class AddressList extends React.Component {
           }}
           onRequestClose = {() => { this.toggleQrModal() } }
         >
-
-        {this.state.qrmodal && <QrAddressReader addAddress={this.addAddress} toggleQrModal={this.toggleQrModal} />}
-        </Modal>
-        <View
-          style={{ flexDirection: "row" }}
-        >
-          <TextInput
-            onChangeText={inputText => this.setState({inputText})}
-            value={this.state.inputText}
-            style={styles.textInput}
-            />
-            <TouchableOpacity
-               style={{
-                 marginLeft: 2,
-                 padding: 2,
-                 color: "white",
-                 backgroundColor: "#0069d9",
-                 borderRadius: 8
-               }}
-               onPress={this.toggleQrModal}
-             >
-              <Text style={{color: "white", fontWeight: "400"}}>QR</Text>
-            </TouchableOpacity>
-        </View>
           {this.state.qrmodal &&
             <QrAddressReader addAddress={this.addAddress}
                              toggleQrModal={this.toggleQrModal}
@@ -358,7 +314,6 @@ export default class AddressList extends React.Component {
         >
           <Button
             style={{  borderRadius: 8}}
-            onPress={this.addAddress}
             // onPress={this.addAddress}
             onPress={this.toggleEnterAddressModal}
             >
@@ -369,9 +324,6 @@ export default class AddressList extends React.Component {
                   }}
                   >
                   Enter a New Paper Wallet
-                  </Text>
-            </Button>
-          </View>
             </Text>
           </Button>
         </View>
@@ -394,60 +346,6 @@ export default class AddressList extends React.Component {
     );
   }
 }
-
-
-
-
-// <TouchableOpacity
-//   style={{
-//     flex: 1/3,
-//     backgroundColor: "#218838"
-//   }}
-//   onPress={this.checkBalance}
-// >
-//   <Text style={{
-//           color: "white",
-//           textAlign: "center"
-//         }}
-//   >
-//     Check Balance
-//   </Text>
-// </TouchableOpacity>
-
-// <TouchableOpacity
-//   style={{
-//     flex: 1/3,
-//     backgroundColor: "#ffc107"
-//   }}
-//   onPress={console.log("load")}
-// >
-//   <Text style={{
-//           color: "white",
-//           textAlign: "center"
-//         }}
-//   >
-//     Load Spreadsheet
-//   </Text>
-// </TouchableOpacity>
-
-// {(this.state.addresses.length !== 0) &&
-//   (<TouchableOpacity
-//      style={{
-//        flex: 1/3,
-//        backgroundColor: "#0069d9"
-//      }}
-//      onPress={console.log("export")}
-//    >
-//      <Text style={{
-//              color: "white",
-//              textAlign: "center"
-//            }}
-//      >
-//        Export Spreadsheet
-//      </Text>
-//    </TouchableOpacity>
-//   )
-// }
 
  const styles = StyleSheet.create({
     container: {
