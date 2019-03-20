@@ -3,46 +3,13 @@
     "name": "Paper Wallets Checker",
     "icon": "./assets/app_icon.png",
     "version": "1.0.0",
-    "slug": "your-app-slug",
+    "slug": "rnpaperwalletchecker",
     "sdkVersion": "32.0.0",
     "ios": {
-      "bundleIdentifier": "com.yourcompany.yourappname"
+      "bundleIdentifier": "host.expo.rnpaperwalletchecker"
     },
     "android": {
-      "package": "com.yourcompany.yourappname"
+      "package": "host.expo.rnpaperwalletchecker"
     }
    }
  }
-
-
-{
-  "expo": {
-    "name": "RNPaperWalletChecker",
-    "slug": "rnpaperwalletchecker",
-    "privacy": "public",
-    "sdkVersion": "32.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/app_icon.png",
-    "splash": {
-      "image": "./assets/app_icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "description": "React Native Crypto Currency Paper Wallet balance checker.  Allows you to check the balance of multiple addresses at once.  It provides a simple way to take payments. ",
-    "githubUrl": "https://github.com/1337ipJbP7U9mi9cdLngL3g5Napum7tWzM/RNPaperWalletChecker"
-  }
-}

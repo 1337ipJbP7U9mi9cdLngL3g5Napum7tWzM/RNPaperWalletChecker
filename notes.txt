@@ -35,3 +35,6 @@ everything should be working now
 
 
 https://expo.io/@1337ip/rnpaperwalletchecker
+
+
+ Successfully built standalone app: https://expo.io/artifacts/2569e327-68f9-4c26-8409-8eec375b4125
