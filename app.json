@@ -1,31 +1,15 @@
 {
-  "expo": {
-    "name": "RNPaperWalletChecker",
-    "slug": "rnpaperwalletchecker",
-    "privacy": "public",
-    "sdkVersion": "32.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+   "expo": {
+    "name": "Paper Wallets Checker",
+    "icon": "./assets/app_icon.png",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "slug": "rnpaperwalletchecker",
+    "sdkVersion": "32.0.0",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "host.expo.rnpaperwalletchecker"
     },
-    "description": "React Native Crypto Currency Paper Wallet balance checker and fiat exchange rate to your crypto balance.",
-    "githubUrl": "https://github.com/1337ipJbP7U9mi9cdLngL3g5Napum7tWzM/RNPaperWalletChecker"
-  }
-}
+    "android": {
+      "package": "host.expo.rnpaperwalletchecker"
+    }
+   }
+ }
