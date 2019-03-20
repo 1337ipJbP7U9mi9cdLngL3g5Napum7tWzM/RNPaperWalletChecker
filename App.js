@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
 import { Root } from "native-base";
+import { AdMobBanner, AdMobInterstitial, AdMobRewarded } from "expo";
 
 import HeaderView from './components/HeaderView';
 import AddressList from './components/AddressList';
@@ -60,6 +61,10 @@ export default class App extends React.Component {
     }
   }
 
+  bannerError() {
+    console.log("an error with admob occured");
+  }
+
   render() {
     return (
         <View style={{
@@ -87,7 +92,24 @@ export default class App extends React.Component {
             checkBalanceState={this.state.checkBalanceState}
             handleCheckBalanceState={this.handleCheckBalanceState}
           />
+          <AdMobBanner
+            style={styles.bottomBanner}
+            bannerSize="fullBanner"
+            adUnitID="ca-app-pub-5374261406606651/3308871967"
+            // adUnitID="ca-app-pub-3940256099942544/6300978111"
+            // Test ID, Replace with your-admob-unit-id
+            testDeviceID="EMULATOR"
+            didFailToReceiveAdWithError={this.bannerError}
+          />
         </View>
     );
   }
 }
+
+
+const styles = StyleSheet.create({
+  bottomBanner: {
+    position: "absolute",
+    bottom: 0
+  }
+});
