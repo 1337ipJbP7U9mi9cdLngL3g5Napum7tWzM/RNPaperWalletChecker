@@ -61,6 +61,10 @@ export default class App extends React.Component {
     }
   }
 
+  bannerError() {
+    console.log("an error with admob occured");
+  }
+
   render() {
     return (
         <View style={{
@@ -97,7 +101,8 @@ export default class App extends React.Component {
           <AdMobBanner
             style={styles.bottomBanner}
             bannerSize="fullBanner"
-            adUnitID="ca-app-pub-3940256099942544/6300978111"
+            adUnitID="ca-app-pub-5374261406606651/3308871967"
+            // adUnitID="ca-app-pub-3940256099942544/6300978111"
             // Test ID, Replace with your-admob-unit-id
             testDeviceID="EMULATOR"
             didFailToReceiveAdWithError={this.bannerError}
