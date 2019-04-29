@@ -110,6 +110,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   bottomBanner: {
     position: "absolute",
-    bottom: 0
+    alignSelf: 'center',
+    bottom: 0,
   }
 });
