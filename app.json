@@ -9,11 +9,7 @@
       "bundleIdentifier": "host.expo.rnpaperwalletchecker"
     },
     "android": {
-      "package": "host.expo.rnpaperwalletchecker",
-      "androidStatusBar": {
-        "barStyle": "dark-content",
-        "backgroundColor": "#0D8F4F"
-      },
+      "package": "host.expo.rnpaperwalletchecker"
     },
     "description": "Paper Wallets Checker is an easy and safe way to check all your paper wallet balances for a number of crypto-currencies. ",
     "githubUrl": "https://github.com/1337ipJbP7U9mi9cdLngL3g5Napum7tWzM/PaperWalletChecker"
