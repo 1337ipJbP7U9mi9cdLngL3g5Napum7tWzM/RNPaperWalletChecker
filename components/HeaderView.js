@@ -85,13 +85,12 @@ export default class HeaderView extends React.Component {
         <View
           style={{
             // height: 'auto',
-            flex: 0.23,
+            // flex: 0.23,
           }}
         >
           <Modal animationType = {"slide"} transparent = {false}
-          visible = {this.state.menumodal}
-          style={{flex: 1}}
-          onRequestClose = {() => { this.toggleMenuModal() } }
+            visible = {this.state.menumodal}
+            onRequestClose = {() => { this.toggleMenuModal() }}
           >
             <Menu toggleMenuModal={this.toggleMenuModal} />
           </Modal>
