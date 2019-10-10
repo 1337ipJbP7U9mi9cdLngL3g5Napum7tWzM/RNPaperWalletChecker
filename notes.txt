@@ -38,3 +38,64 @@ https://expo.io/@1337ip/rnpaperwalletchecker
 
 
  Successfully built standalone app: https://expo.io/artifacts/2569e327-68f9-4c26-8409-8eec375b4125
+
+
+
+
+Notes may repeat
+
+
+expo init my-new-project
+cd my-new-project
+expo start
+
+https://www.youtube.com/watch?v=TesDIVA28rM&t=609s
+following these videos
+
+expo start from project folder
+
+Need emulator up so sh studio.sh from android-studio/bin
+
+then click run on emulator
+
+then allow permissions
+
+then hit the back button which should start the build
+
+Everything should be running now
+
+
+
+Camera permissions expo https://docs.expo.io/versions/latest/sdk/camera
+
+
+
+Watchman errors https://stackoverflow.com/questions/42711008/error-when-running-watchman
+  echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances
+echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_queued_events
+echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_queued_events
+or
+echo fs.inotify.max_user_instances=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+or try this  https://facebook.github.io/watchman/docs/troubleshooting.html#poison-inotify-add-watch at ChildProcess
+$ watchman watch-del-all
+$ watchman shutdown-server
+
+
+
+
+expo Camera Permissions https://docs.expo.io/versions/latest/sdk/camera
+
+
+article on how to convert expo to a stand alone app that runs
+on Google Play. It also talks about updates.
+https://hackernoon.com/understanding-expo-for-react-native-7bf23054bbcd
+
+asyn await https://blog.expo.io/react-native-meets-async-functions-3e6f81111173
+
+
+https://medium.com/react-native-training/bitcoin-ripple-ethereum-price-checker-with-react-native-redux-e9d076037092
+crypto price checker
+
+https://hackernoon.com/using-core-node-js-modules-in-react-native-apps-64acd4d07140
+tutorial on add node module to react native
