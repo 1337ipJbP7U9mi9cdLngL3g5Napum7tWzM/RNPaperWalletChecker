@@ -4,7 +4,7 @@
     "icon": "./assets/pwclogo.png",
     "version": "1.0.2",
     "slug": "rnpaperwalletchecker",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "33.0.0",
     "ios": {
       "bundleIdentifier": "host.expo.rnpaperwalletchecker"
     },
