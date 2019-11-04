@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
 import { Root } from "native-base";
-import { AdMobBanner, AdMobInterstitial, AdMobRewarded } from "expo";
+import { AdMobBanner, AdMobInterstitial, AdMobRewarded } from "expo-ads-admob";
 
 import HeaderView from './components/HeaderView';
 import AddressList from './components/AddressList';

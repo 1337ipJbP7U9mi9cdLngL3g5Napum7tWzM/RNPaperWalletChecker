@@ -4,7 +4,7 @@
     "icon": "./assets/pwclogo.png",
     "version": "1.0.2",
     "slug": "rnpaperwalletchecker",
-    "sdkVersion": "33.0.0",
+    "sdkVersion": "35.0.0",
     "ios": {
       "bundleIdentifier": "host.expo.rnpaperwalletchecker"
     },
@@ -12,6 +12,10 @@
       "package": "host.expo.rnpaperwalletchecker"
     },
     "description": "Paper Wallets Checker is an easy and safe way to check all your paper wallet balances for a number of crypto-currencies. ",
-    "githubUrl": "https://github.com/1337ipJbP7U9mi9cdLngL3g5Napum7tWzM/PaperWalletChecker"
+    "githubUrl": "https://github.com/1337ipJbP7U9mi9cdLngL3g5Napum7tWzM/PaperWalletChecker",
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }

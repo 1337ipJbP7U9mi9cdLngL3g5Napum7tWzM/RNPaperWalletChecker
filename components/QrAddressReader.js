@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, Linking, Dimensions, LayoutAnimation, Text, View, StatusBar, StyleSheet, TouchableOpacity } from 'react-native';
-import { BarCodeScanner, Permissions } from 'expo';
-// import * as BarCodeScanner from 'expo-file-system';
-// import * as Permissions from 'expo-file-system';
+import * as Permissions from 'expo-permissions';
+import { BarCodeScanner } from 'expo-barcode-scanner';
 
 export default class QrAddressReader extends Component {
   state = {

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Picker, StyleSheet, View, Modal } from 'react-native';
 import { Container, Header, Left, Body, Right, Title, Button, Icon, Text } from 'native-base';
+import { AppLoading } from 'expo';
+import * as Font from 'expo-font'
 import CryptoDropdown from "./CryptoDropdown";
 import FiatDropdown from "./FiatDropdown";
 import Menu from "./Menu";
@@ -44,9 +46,9 @@ export default class HeaderView extends React.Component {
   }
 
   async componentWillMount() {
-    await Expo.Font.loadAsync({
-      'Roboto': require('native-base/Fonts/Roboto.ttf'),
-      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+    await Font.loadAsync({
+      'Roboto': require('../node_modules/native-base/Fonts/Roboto.ttf'),
+      'Roboto_medium': require('../node_modules/native-base/Fonts/Roboto_medium.ttf'),
     });
     this.setState({loading: false});
   }
@@ -69,7 +71,7 @@ export default class HeaderView extends React.Component {
 
   render(){
     if (this.state.loading) {
-      return <Expo.AppLoading />;
+      return <AppLoading />;
     }
     const cryptoSym = this.props.cryptoSym;
     const fiatPrice = this.props.fiatPrice;

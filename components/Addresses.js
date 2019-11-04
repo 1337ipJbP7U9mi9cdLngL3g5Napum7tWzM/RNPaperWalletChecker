@@ -4,8 +4,9 @@ import QRCode from 'react-native-qrcode';
 import { Container, Content, Card, CardItem, Body, Text, Button } from "native-base";
 
 // import * as Font from 'expo-file-system';
+// import * as Font from 'expo-font'
 // import { Font } from 'expo';
-// import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class AddressList extends React.Component {
     constructor(props) {
